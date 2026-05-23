@@ -1,0 +1,5 @@
+got the dataset form kaggle, want to do eda on this data followed by data preprocessing, feature extraction  for feeding clean data to the ml models.
+
+ill keep my learning here and my also my project flow.
+INSURANCE :
+insurance predcition out of the remaining columns.
