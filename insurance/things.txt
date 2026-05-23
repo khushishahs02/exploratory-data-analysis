@@ -3,3 +3,18 @@ got the dataset form kaggle, want to do eda on this data followed by data prepro
 ill keep my learning here and my also my project flow.
 INSURANCE :
 insurance predcition out of the remaining columns.
+
+first i imported the csv into pandas, and then used the following functions
+head() : to view the first 5 rows of the dataset.
+info() : to view the columns and their data types.
+describe() : to view the statistics of the dataset.
+isnull().sum() : to view the number of null values in each column.
+
+dataset is already cleaned, no null values present.
+
+now i'll do some eda and visualization.
+
+for that ill take the numeric columns and plot the historam as wellas kernel density estimate using seaborn.
+
+for individual columns the inisght i got it : 
+1. age : right skewed
