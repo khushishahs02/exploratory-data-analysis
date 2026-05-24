@@ -9,8 +9,10 @@ head() : to view the first 5 rows of the dataset.
 info() : to view the columns and their data types.
 describe() : to view the statistics of the dataset.
 isnull().sum() : to view the number of null values in each column.
+duplicated().sum() : to view the number of duplicate rows.
+drop_duplicates() : to drop the duplicate rows from the dataset.
 
-dataset is already cleaned, no null values present.
+dataset contains no null values, but had 1 duplicate row (index 581, which is identical to index 195). We dropped this duplicate row to ensure the dataset is clean.
 
 now i'll do some eda and visualization.
 
