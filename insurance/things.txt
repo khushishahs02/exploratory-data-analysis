@@ -43,3 +43,15 @@ label encoding : converting categorical text values into numerical values.
 insights/actions:
 1. sex column is label-encoded: female is mapped to 0, male is mapped to 1. The column is renamed to sex_encoded.
 2. smoker column is label-encoded: no is mapped to 0, yes is mapped to 1. The column is renamed to smoker_encoded.
+
+what is feature engineering on bmi?
+we categorized the bmi column into four standard health weight classes:
+1. underweight (bmi < 18.5)
+2. normal (18.5 <= bmi < 25)
+3. overweight (25 <= bmi < 30)
+4. obese (bmi >= 30)
+
+what is one-hot encoding?
+one-hot encoding : converting categorical categories into binary columns (0 or 1) for each category.
+insights/actions:
+1. the bmi category column is one-hot encoded into four new columns: bmi_underweight, bmi_normal, bmi_overweight, bmi_obese.
