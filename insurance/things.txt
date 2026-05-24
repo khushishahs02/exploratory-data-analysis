@@ -28,3 +28,10 @@ histograms shape chages continuously ddepending on how may bins we choose, but t
 bins : just the number of block into which we want to divide our dataset.
 
 for children, histogram doesnt give much info so we can use countplot instead for it.
+
+what is correlation heatmap?
+correlation heatmap : it's a graphical representation of the correlation matrix showing how numerical columns are related to each other. Values range from -1 to 1.
+insights:
+1. age and charges have a moderate positive correlation of 0.30, meaning older people tend to pay higher charges.
+2. bmi and charges have a positive correlation of 0.20.
+3. children has the weakest correlation with charges (0.07).
