@@ -55,3 +55,8 @@ what is one-hot encoding?
 one-hot encoding : converting categorical categories into binary columns (0 or 1) for each category.
 insights/actions:
 1. the bmi category column is one-hot encoded into four new columns: bmi_underweight, bmi_normal, bmi_overweight, bmi_obese.
+
+what is feature scaling?
+feature scaling (standardization/z-score normalization) : scaling features to have a mean of 0 and standard deviation of 1. This prevents features with larger magnitudes from dominating the learning process.
+insights/actions:
+1. standardized the age, bmi, and children columns by subtracting the mean and dividing by the standard deviation.
