@@ -17,4 +17,14 @@ now i'll do some eda and visualization.
 for that ill take the numeric columns and plot the historam as wellas kernel density estimate using seaborn.
 
 for individual columns the inisght i got it : 
-1. age : right skewed
+1. age : right skewed(positive skewed), most people are lower aged, with age less than 20
+2. bmi : centred, meaning that majority of the people bmi is hovering around 30 and less number of people with bmi 12 or 50, so mean and median for thsi data is identical.
+3. charges : right skewwed, with most people having lower charges and les people(mostly smokers) having higher insurance charges.
+4. children : right skewed, no of children are basically the number of dependents, most people have zero childre.
+
+what is kde?
+kernel density estimate : thats the smooth line drawn over the histogram,
+histograms shape chages continuously ddepending on how may bins we choose, but the kde remains same , it estimates the ocntinuous probability function to draw a curve.
+bins : just the number of block into which we want to divide our dataset.
+
+for children, histogram doesnt give much info so we can use countplot instead for it.
