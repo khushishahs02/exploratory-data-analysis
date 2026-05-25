@@ -60,3 +60,10 @@ what is feature scaling?
 feature scaling (standardization/z-score normalization) : scaling features to have a mean of 0 and standard deviation of 1. This prevents features with larger magnitudes from dominating the learning process.
 insights/actions:
 1. standardized the age, bmi, and children columns by subtracting the mean and dividing by the standard deviation.
+
+what is pearson correlation?
+pearson correlation : a measure of the linear relationship between two variables, ranging from -1 to 1.
+insights:
+1. is_smoker has the highest positive correlation with charges (0.787).
+2. age (0.298) and bmi (0.198) / bmi_category_Obese (0.198) also show positive correlation with charges.
+3. is_female (-0.058), children (0.067), and region columns have weak to negligible correlation.
