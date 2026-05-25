@@ -67,3 +67,11 @@ insights:
 1. is_smoker has the highest positive correlation with charges (0.787).
 2. age (0.298) and bmi (0.198) / bmi_category_Obese (0.198) also show positive correlation with charges.
 3. is_female (-0.058), children (0.067), and region columns have weak to negligible correlation.
+
+what is train-test split before feature scaling?
+train-test split before scaling : dividing the dataset into training (80%) and testing (20%) sets before applying feature scaling. This is a critical best practice to prevent data leakage (where statistical parameters like mean and standard deviation from the test set are leaked to the model during training).
+insights/actions:
+1. split the dataset into training and testing sets (80/20 split, random_state=42).
+2. fit the StandardScaler only on the training set (X_train) to learn mean and standard deviation.
+3. scaled both training (X_train) and testing (X_test) datasets using the parameters learned from the training set.
+
