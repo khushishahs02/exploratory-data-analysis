@@ -1,0 +1,77 @@
+got the dataset form kaggle, want to do eda on this data followed by data preprocessing, feature extraction  for feeding clean data to the ml models.
+
+ill keep my learning here and my also my project flow.
+INSURANCE :
+insurance predcition out of the remaining columns.
+
+first i imported the csv into pandas, and then used the following functions
+head() : to view the first 5 rows of the dataset.
+info() : to view the columns and their data types.
+describe() : to view the statistics of the dataset.
+isnull().sum() : to view the number of null values in each column.
+duplicated().sum() : to view the number of duplicate rows.
+drop_duplicates() : to drop the duplicate rows from the dataset.
+
+dataset contains no null values, but had 1 duplicate row (index 581, which is identical to index 195). We dropped this duplicate row to ensure the dataset is clean.
+
+now i'll do some eda and visualization.
+
+for that ill take the numeric columns and plot the historam as wellas kernel density estimate using seaborn.
+
+for individual columns the inisght i got it : 
+1. age : right skewed(positive skewed), most people are lower aged, with age less than 20
+2. bmi : centred, meaning that majority of the people bmi is hovering around 30 and less number of people with bmi 12 or 50, so mean and median for thsi data is identical.
+3. charges : right skewwed, with most people having lower charges and les people(mostly smokers) having higher insurance charges.
+4. children : right skewed, no of children are basically the number of dependents, most people have zero childre.
+
+what is kde?
+kernel density estimate : thats the smooth line drawn over the histogram,
+histograms shape chages continuously ddepending on how may bins we choose, but the kde remains same , it estimates the ocntinuous probability function to draw a curve.
+bins : just the number of block into which we want to divide our dataset.
+
+for children, histogram doesnt give much info so we can use countplot instead for it.
+
+what is correlation heatmap?
+correlation heatmap : it's a graphical representation of the correlation matrix showing how numerical columns are related to each other. Values range from -1 to 1.
+insights:
+1. age and charges have a moderate positive correlation of 0.30, meaning older people tend to pay higher charges.
+2. bmi and charges have a positive correlation of 0.20.
+3. children has the weakest correlation with charges (0.07).
+
+what is label encoding?
+label encoding : converting categorical text values into numerical values.
+insights/actions:
+1. sex column is label-encoded: female is mapped to 0, male is mapped to 1. The column is renamed to sex_encoded.
+2. smoker column is label-encoded: no is mapped to 0, yes is mapped to 1. The column is renamed to smoker_encoded.
+
+what is feature engineering on bmi?
+we categorized the bmi column into four standard health weight classes:
+1. underweight (bmi < 18.5)
+2. normal (18.5 <= bmi < 25)
+3. overweight (25 <= bmi < 30)
+4. obese (bmi >= 30)
+
+what is one-hot encoding?
+one-hot encoding : converting categorical categories into binary columns (0 or 1) for each category.
+insights/actions:
+1. the bmi category column is one-hot encoded into four new columns: bmi_underweight, bmi_normal, bmi_overweight, bmi_obese.
+
+what is feature scaling?
+feature scaling (standardization/z-score normalization) : scaling features to have a mean of 0 and standard deviation of 1. This prevents features with larger magnitudes from dominating the learning process.
+insights/actions:
+1. standardized the age, bmi, and children columns by subtracting the mean and dividing by the standard deviation.
+
+what is pearson correlation?
+pearson correlation : a measure of the linear relationship between two variables, ranging from -1 to 1.
+insights:
+1. is_smoker has the highest positive correlation with charges (0.787).
+2. age (0.298) and bmi (0.198) / bmi_category_Obese (0.198) also show positive correlation with charges.
+3. is_female (-0.058), children (0.067), and region columns have weak to negligible correlation.
+
+what is train-test split before feature scaling?
+train-test split before scaling : dividing the dataset into training (80%) and testing (20%) sets before applying feature scaling. This is a critical best practice to prevent data leakage (where statistical parameters like mean and standard deviation from the test set are leaked to the model during training).
+insights/actions:
+1. split the dataset into training and testing sets (80/20 split, random_state=42).
+2. fit the StandardScaler only on the training set (X_train) to learn mean and standard deviation.
+3. scaled both training (X_train) and testing (X_test) datasets using the parameters learned from the training set.
+
