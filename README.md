@@ -27,6 +27,22 @@ Predicting individual medical insurance charges using regression models.
 
 ---
 
+## Modeling & Evaluation
+
+The baseline Linear Regression model yields the following scorecard (on log-transformed charges):
+
+| Metric | Training Set | Testing Set |
+|---|---|---|
+| R-Squared ($R^2$) | 0.7351 | 0.8046 |
+| MAE | \$0.28 | \$0.27 |
+| RMSE | \$0.45 | \$0.40 |
+
+### Residuals Diagnostics
+- **Homoscedasticity:** Verified via the Residuals vs. Predicted Values plot. The residuals are randomly scattered around the $y=0$ baseline, indicating constant variance.
+- **Normality:** The distribution of residuals (histogram and KDE curve) is approximately bell-shaped and centered close to 0, satisfying the normality assumption of regression.
+
+---
+
 ## Setup
 
 ```bash
