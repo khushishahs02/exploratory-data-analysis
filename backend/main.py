@@ -37,7 +37,8 @@ def load_models():
     global model, scaler, explainer
     model = joblib.load('gb_model.pkl')
     scaler = joblib.load('scaler.pkl')
-    explainer = shap.TreeExplainer(model)
+    def get_explainer():
+     return shap.TreeExplainer(model)
 
 class PatientInput(BaseModel):
     age: int
