@@ -1,0 +1,130 @@
+[
+  {
+    "file": "eda_01.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 9,
+    "title_hint": "",
+    "source_preview": "numeric_columns = ['age', 'bmi', 'children', 'charges']\n\nfor col in numeric_columns:\n    plt.figure(figsize=(6, 4))\n    sns.histplot(data[col], kde=True, bins=20)\n    plt.title(f'Distribution of {col}"
+  },
+  {
+    "file": "eda_02.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 9,
+    "title_hint": "",
+    "source_preview": "numeric_columns = ['age', 'bmi', 'children', 'charges']\n\nfor col in numeric_columns:\n    plt.figure(figsize=(6, 4))\n    sns.histplot(data[col], kde=True, bins=20)\n    plt.title(f'Distribution of {col}"
+  },
+  {
+    "file": "eda_03.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 9,
+    "title_hint": "",
+    "source_preview": "numeric_columns = ['age', 'bmi', 'children', 'charges']\n\nfor col in numeric_columns:\n    plt.figure(figsize=(6, 4))\n    sns.histplot(data[col], kde=True, bins=20)\n    plt.title(f'Distribution of {col}"
+  },
+  {
+    "file": "eda_04.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 9,
+    "title_hint": "",
+    "source_preview": "numeric_columns = ['age', 'bmi', 'children', 'charges']\n\nfor col in numeric_columns:\n    plt.figure(figsize=(6, 4))\n    sns.histplot(data[col], kde=True, bins=20)\n    plt.title(f'Distribution of {col}"
+  },
+  {
+    "file": "eda_05.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 10,
+    "title_hint": "children is discrete (0-5), countplot is clearer than histogram",
+    "source_preview": "# children is discrete (0-5), countplot is clearer than histogram\nplt.figure(figsize=(6, 4))\nsns.countplot(x=data['children'])\nplt.title('Count of Children')"
+  },
+  {
+    "file": "eda_06.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 12,
+    "title_hint": "",
+    "source_preview": "fig, axes = plt.subplots(1, 2, figsize=(12, 4))\n\nsns.countplot(x=data['sex'], ax=axes[0])\naxes[0].set_title('Gender Distribution')\n\nsns.countplot(x=data['smoker'], ax=axes[1])\naxes[1].set_title('Smoke"
+  },
+  {
+    "file": "eda_07.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 14,
+    "title_hint": "",
+    "source_preview": "plt.figure(figsize=(6, 4))\nsns.boxplot(x=data['smoker'], y=data['charges'])\nplt.title('Smoker vs Insurance Charges')"
+  },
+  {
+    "file": "eda_08.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 17,
+    "title_hint": "",
+    "source_preview": "for col in ['age', 'bmi', 'children', 'charges']:\n    plt.figure(figsize=(6, 4))\n    sns.boxplot(data[col])\n    plt.title(f'Boxplot \u2014 {col}')\n    "
+  },
+  {
+    "file": "eda_09.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 17,
+    "title_hint": "",
+    "source_preview": "for col in ['age', 'bmi', 'children', 'charges']:\n    plt.figure(figsize=(6, 4))\n    sns.boxplot(data[col])\n    plt.title(f'Boxplot \u2014 {col}')\n    "
+  },
+  {
+    "file": "eda_10.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 17,
+    "title_hint": "",
+    "source_preview": "for col in ['age', 'bmi', 'children', 'charges']:\n    plt.figure(figsize=(6, 4))\n    sns.boxplot(data[col])\n    plt.title(f'Boxplot \u2014 {col}')\n    "
+  },
+  {
+    "file": "eda_11.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 17,
+    "title_hint": "",
+    "source_preview": "for col in ['age', 'bmi', 'children', 'charges']:\n    plt.figure(figsize=(6, 4))\n    sns.boxplot(data[col])\n    plt.title(f'Boxplot \u2014 {col}')\n    "
+  },
+  {
+    "file": "eda_12.png",
+    "notebook": "notebooks/01_Exploratory_Data_Analysis.ipynb",
+    "prefix": "eda",
+    "cell_index": 19,
+    "title_hint": "",
+    "source_preview": "plt.figure(figsize=(8, 6))\nsns.heatmap(data.corr(numeric_only=True), annot=True)\nplt.title('Correlation Heatmap')"
+  },
+  {
+    "file": "prep_01.png",
+    "notebook": "notebooks/02_Preprocessing.ipynb",
+    "prefix": "prep",
+    "cell_index": 12,
+    "title_hint": "Visual confirmation - dots above upper whisker should disappear after capping",
+    "source_preview": "# Visual confirmation - dots above upper whisker should disappear after capping\nfig, axes = plt.subplots(1, 2, figsize=(12, 4))\n\nsns.boxplot(data['bmi'], ax=axes[0], color='steelblue')\naxes[0].set_tit"
+  },
+  {
+    "file": "prep_02.png",
+    "notebook": "notebooks/02_Preprocessing.ipynb",
+    "prefix": "prep",
+    "cell_index": 21,
+    "title_hint": "",
+    "source_preview": "fig, axes = plt.subplots(1, 2, figsize=(12, 4))\n\nsns.histplot(data_cleaned['charges'], kde=True, ax=axes[0])\ndata_cleaned['log_charges'] = np.log(data_cleaned['charges'])\nsns.histplot(data_cleaned['lo"
+  },
+  {
+    "file": "model_01.png",
+    "notebook": "notebooks/03_Modeling.ipynb",
+    "prefix": "model",
+    "cell_index": 43,
+    "title_hint": "",
+    "source_preview": "patient_id = 2\nplt.figure(figsize=(10, 6))\nshap.plots.waterfall(shap_values[patient_id], max_display=11, show=False)\nplt.title(f\"Waterfall plot for {patient_id}\")\nplt.show()"
+  },
+  {
+    "file": "model_02.png",
+    "notebook": "notebooks/03_Modeling.ipynb",
+    "prefix": "model",
+    "cell_index": 44,
+    "title_hint": "",
+    "source_preview": "plt.figure(figsize=(10, 6))\nshap.plots.scatter(shap_values[:, \"bmi\"], color=shap_values[:, \"is_smoker\"], show=False)\n\nplt.title(\"SHAP Interaction Plot: How Smoking Multiplies BMI Risk\", fontsize=14, p"
+  }
+]
