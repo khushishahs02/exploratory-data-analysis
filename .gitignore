@@ -1,12 +1,9 @@
-node_modules/
+
 dist/
-.env
-.env.local
 .DS_Store
 
 # model files — don't commit large binaries to git
-backend/*.pkl
-backend/*.joblib
+
 node_modules/
 __pycache__/
 backend/__pycache__/
