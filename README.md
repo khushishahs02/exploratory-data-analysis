@@ -2,7 +2,7 @@
 
 **An end-to-end explainable machine learning web application that predicts annual health insurance charges based on patient demographic and lifestyle data.**
 
-Built as a Summer 2026 portfolio project by [Khushi Shah](https://github.com/khushishahs02) — ICT CS student — covering the full data science lifecycle from raw EDA through production deployment.
+My first ML project covering the full data science lifecycle from raw EDA through production deployment.
 
 **Live Demo:** [insurance-charges-prediction.vercel.app](https://insurance-charges-prediction.vercel.app)  
 **Backend API:** Deployed on Render (FastAPI + uvicorn)
@@ -11,7 +11,7 @@ Built as a Summer 2026 portfolio project by [Khushi Shah](https://github.com/khu
 
 ## Project Overview
 
-HealthWealth takes six patient inputs — age, sex, BMI, number of dependents, smoking status, and US region — and returns a predicted annual insurance charge along with a SHAP-powered explanation of exactly which factors drove the estimate and by how much.
+HealthWealth takes six patient inputs - age, sex, BMI, children, smoking status, and US region, and returns a predicted annual insurance charge along with a SHAP-powered explanation of exactly which factors drove the estimate and by how much.
 
 The application is designed around the principle that a model that explains itself is more valuable than one that is marginally more accurate but opaque.
 
@@ -19,11 +19,11 @@ The application is designed around the principle that a model that explains itse
 
 ## Key Features
 
-- **Single-patient prediction** — fill the form and get an instant charge estimate with a SHAP waterfall breakdown
-- **Batch prediction** — upload a CSV of patients and download results with predicted charges and risk tiers (Low / Medium / High)
-- **SHAP explainability** — every prediction comes with a ranked list of feature contributions in plain English, not just a number
-- **Model registry page** — full 8-model leaderboard with R², MAE, and RMSE, SHAP feature importance bars, and Pearson correlation table
-- **Explain page** — interactive walkthrough of how SHAP works, the SVR vs Gradient Boosting trade-off, and why explainability was prioritised over raw accuracy
+- **Single-patient prediction** - fill the form and get an instant charge estimate with a SHAP waterfall breakdown
+- **Batch prediction** - upload a CSV of patients and download results with predicted charges and risk tiers (Low / Medium / High)
+- **SHAP explainability** - every prediction comes with a ranked list of feature contributions in plain English, not just a number
+- **Model registry page** - full 8-model leaderboard with R², MAE, and RMSE, SHAP feature importance bars, and Pearson correlation table
+- **Explain page** - interactive walkthrough of how SHAP works, the SVR vs Gradient Boosting trade-off, and why explainability was prioritised over raw accuracy
 
 ---
 
@@ -56,10 +56,10 @@ The application is designed around the principle that a model that explains itse
 All metrics computed on the log-transformed target. The `exp()` inverse transform is applied at inference time.
 
 ### Model Selection Rationale
-SVR achieved the highest R² but requires SHAP's `KernelExplainer` — a model-agnostic method that samples 1,337 rows and took 20+ minutes locally, threatening RAM exhaustion entirely. Gradient Boosting was selected for its native compatibility with SHAP's `TreeExplainer`, which runs in milliseconds with exact (not approximate) Shapley values. The 0.03% accuracy difference is irrelevant compared to the gain in explainability and production feasibility.
+SVR achieved the highest R² but requires SHAP's `KernelExplainer`, a model-agnostic method that samples 1,337 rows and took 20+ minutes locally, threatening RAM exhaustion entirely. Gradient Boosting was selected for its native compatibility with SHAP's `TreeExplainer`, which runs in milliseconds with exact (not approximate) Shapley values. The 0.02% accuracy difference is irrelevant compared to the gain in explainability and production feasibility.
 
 ### SHAP Explainability
-- Explainer: `shap.TreeExplainer` — exact Shapley values, sub-second inference
+- Explainer: `shap.TreeExplainer`, exact Shapley values, sub-second inference
 - Top features by mean absolute SHAP value: `is_smoker` (0.50), `age` (0.43), `children` (0.10), `bmi` (0.08)
 - SHAP values are in log-charge space; dollar impact is computed as `prediction × (exp(shap_val) − 1)`
 
@@ -131,7 +131,7 @@ insurance-charges-prediction/
 |---|---|---|
 | `POST` | `/api/predict` | Predict charge for a single patient (JSON body) |
 | `POST` | `/api/predict-batch` | Predict charges for a CSV file upload |
-| `GET` | `/api/health` | Health check — returns model type and feature list |
+| `GET` | `/api/health` | Health check - returns model type and feature list |
 
 ### Single predict request body
 ```json
@@ -160,7 +160,6 @@ insurance-charges-prediction/
     "Overall estimated annual charge: $7,234, before plan discounts or deductibles."
   ]
 }
-```
 
 ---
 
@@ -202,19 +201,11 @@ uvicorn main:app --reload
 1. Connect the GitHub repository to Vercel
 2. Root directory: `.` (project root)
 3. Add environment variable: `VITE_API_URL` = your Render service URL (no trailing slash)
-4. Deploy — Vercel runs `npm run build` and serves the `dist/` output
-
----
-
-## Concepts Covered
-
-`Exploratory Data Analysis` · `Leakage-safe Scaling` · `Outlier Treatment` · `Correlation Mapping` · `Feature Engineering (BMI categories)` · `One-hot Encoding` · `Train/Test Split` · `Linear Regression` · `Lasso` · `ElasticNet` · `Decision Tree` · `Random Forest` · `Gradient Boosting` · `Support Vector Regression` · `KNN Regressor` · `GridSearchCV Hyperparameter Tuning` · `SHAP TreeExplainer` · `FastAPI` · `React` · `Tailwind CSS` · `Vite` · `Vercel` · `Render`
-
----
+4. Deploy - Vercel runs `npm run build` and serves the `dist/` output
 
 ## Author
 
-**Khushi Shah** — ICT CS Student  
+**Khushi Shah** - ICT CS Student  
 [GitHub](https://github.com/khushishahs02) · [LinkedIn](https://www.linkedin.com/in/khushi-shah-047761287/)
 
 > This project is an academic portfolio demonstration of an end-to-end supervised regression pipeline. It is not intended for real actuarial, underwriting, or financial guidance.
