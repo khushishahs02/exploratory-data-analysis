@@ -68,7 +68,13 @@ SVR achieved the highest R² but requires SHAP's `KernelExplainer`, a model-agno
 ## Screenshots & Demo
 
 ### Video Demo
-<video src="screenshots/Insurance_Charge_Prediction.mp4" controls="controls" style="max-width: 100%;"></video>
+Watch the full end-to-end demonstration of the HealthWealth platform below. This video showcases the entire user flow, from single patient predictions with SHAP explainability to the batch processing capabilities.
+
+<video src="https://github.com/khushishahs02/exploratory-data-analysis/raw/dev/screenshots/Insurance_Charge_Prediction.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+*(If the video does not load, you can [view or download it directly here](https://github.com/khushishahs02/exploratory-data-analysis/raw/dev/screenshots/Insurance_Charge_Prediction.mp4))*
 
 ### Screenshots
 **Landing Page**  
