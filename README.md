@@ -65,6 +65,26 @@ SVR achieved the highest R² but requires SHAP's `KernelExplainer`, a model-agno
 
 ---
 
+## Screenshots & Demo
+
+### Video Demo
+<video src="screenshots/Insurance_Charge_Prediction.mp4" controls="controls" style="max-width: 100%;"></video>
+
+### Screenshots
+**Landing Page**  
+![Landing Page](screenshots/Landing_Page.png)
+
+**Single Patient Prediction**  
+![Single Patient Prediction](screenshots/Single_Patient_Prediction.png)
+
+**Batch Prediction**  
+![Batch Prediction](screenshots/Batch_Prediction.png)
+
+**SHAP Explanation**  
+![SHAP Explanation](screenshots/Shap_Explanation.png)
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
