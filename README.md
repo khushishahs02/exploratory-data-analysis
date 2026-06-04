@@ -1,3 +1,7 @@
+
+
+
+
 # HealthWealth
 
 **An end-to-end explainable machine learning web application that predicts annual health insurance charges based on patient demographic and lifestyle data.**
@@ -69,12 +73,12 @@ SVR achieved the highest R² but requires SHAP's `KernelExplainer`, a model-agno
 
 ### Video Demo
 Watch the full end-to-end demonstration of the HealthWealth platform below. This video showcases the entire user flow, from single patient predictions with SHAP explainability to the batch processing capabilities.
+   
 
-<video src="https://github.com/khushishahs02/exploratory-data-analysis/raw/dev/screenshots/Insurance_Charge_Prediction.mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/15241487-7638-491e-9a8f-02627a5879da
 
-*(If the video does not load, you can [view or download it directly here](https://github.com/khushishahs02/exploratory-data-analysis/raw/dev/screenshots/Insurance_Charge_Prediction.mp4))*
+
+
 
 ### Screenshots
 **Landing Page**  
