@@ -4,6 +4,6 @@ dist/
 .env.local
 .DS_Store
 
-
 __pycache__/
 backend/__pycache__/
+*.pyc

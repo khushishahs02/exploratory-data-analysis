@@ -1,14 +1,3 @@
-"""
-HealthWealth — FastAPI Backend
---------------------------------
-Run from inside the backend/ folder:
-    uvicorn main:app --reload
-
-NOT from the project root. Must be:
-    cd backend
-    uvicorn main:app --reload
-"""
-
 import os, io, math, traceback
 import joblib
 import numpy as np
@@ -24,28 +13,20 @@ model     = joblib.load(os.path.join(BASE_DIR, 'gb_model.pkl'))
 scaler    = joblib.load(os.path.join(BASE_DIR, 'scaler.pkl'))
 explainer = shap.TreeExplainer(model)
 
-# ── Exact column order from X_train.columns.tolist() ─────────────────────────
-# age, is_female, bmi, children, is_smoker,
-# region_northwest, region_southeast, region_southwest,
-# bmi_category_Normal, bmi_category_Overweight, bmi_category_Obese
 ALL_FEATURES = [
     'age', 'is_female', 'bmi', 'children', 'is_smoker',
     'region_northwest', 'region_southeast', 'region_southwest',
     'bmi_category_Normal', 'bmi_category_Overweight', 'bmi_category_Obese',
 ]
 
-# Columns that were StandardScaled during training
+# Columns that were Scaled during training
 NUMERIC_COLS = ['age', 'bmi', 'children']
 
 app = FastAPI(title='HealthWealth', version='1.0')
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        'http://localhost:5173',
-        'http://localhost:4173',
-        'https://your-vercel-app.vercel.app',   # ← replace after deploy
-    ],
+    allow_origins=["*"],
     allow_methods=['*'],
     allow_headers=['*'],
 )
