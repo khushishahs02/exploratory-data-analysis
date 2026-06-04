@@ -8,10 +8,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # ── Load artifacts ────────────────────────────────────────────────────────────
-BASE_DIR  = os.path.dirname(__file__)
-model     = joblib.load(os.path.join(BASE_DIR, 'gb_model.pkl'))
-scaler    = joblib.load(os.path.join(BASE_DIR, 'scaler.pkl'))
-explainer = shap.TreeExplainer(model)
+# Use abspath to guarantee the correct path regardless of cwd on Render
+BASE_DIR  = os.path.dirname(os.path.abspath(__file__))
+print(f"[startup] BASE_DIR = {BASE_DIR}")
+print(f"[startup] Files in BASE_DIR: {os.listdir(BASE_DIR)}")
+
+try:
+    model     = joblib.load(os.path.join(BASE_DIR, 'gb_model.pkl'))
+    scaler    = joblib.load(os.path.join(BASE_DIR, 'scaler.pkl'))
+    explainer = shap.TreeExplainer(model)
+    print(f"[startup] Model loaded OK: {type(model).__name__}")
+except Exception as e:
+    print(f"[startup] FATAL: could not load model — {e}")
+    traceback.print_exc()
+    raise
 
 ALL_FEATURES = [
     'age', 'is_female', 'bmi', 'children', 'is_smoker',
@@ -66,8 +76,8 @@ def build_features(p: PatientInput) -> pd.DataFrame:
         'bmi_category_Obese':      1 if cat == 'Obese'       else 0,
     }
 
-    df = pd.DataFrame([row])[ALL_FEATURES]          # enforce exact order
-    df[NUMERIC_COLS] = scaler.transform(df[NUMERIC_COLS])   # scale numerics
+    df = pd.DataFrame([row])[ALL_FEATURES]
+    df[NUMERIC_COLS] = scaler.transform(df[NUMERIC_COLS])
     return df
 
 
@@ -87,10 +97,6 @@ LABELS = {
 }
 
 def plain_english(shap_arr, features, prediction: float) -> list[str]:
-    """
-    SHAP values are in log-charge space.
-    Dollar impact ≈ prediction × (exp(shap_val) − 1)
-    """
     pairs = sorted(zip(features, shap_arr), key=lambda x: abs(x[1]), reverse=True)
     lines = []
     for feat, val in pairs[:3]:
@@ -119,7 +125,7 @@ def predict(patient: PatientInput):
     try:
         df         = build_features(patient)
         log_pred   = float(model.predict(df)[0])
-        prediction = math.exp(log_pred)             # convert from log-space to dollars
+        prediction = math.exp(log_pred)
 
         sv         = explainer(df)
         shap_arr   = sv.values[0]
@@ -138,7 +144,7 @@ def predict(patient: PatientInput):
             'plain_english': plain_english(shap_arr, ALL_FEATURES, prediction),
         }
     except Exception as e:
-        traceback.print_exc()           # prints full error to your terminal
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 
