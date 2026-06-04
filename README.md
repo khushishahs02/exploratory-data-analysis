@@ -161,9 +161,10 @@ insurance-charges-prediction/
   ]
 }
 
----
 
-## Local Development
+```
+
+### Local Development
 
 ### Prerequisites
 - Node.js 18+
