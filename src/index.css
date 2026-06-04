@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-[#F5F4F0] text-[#1A1A1A] font-body antialiased; }
+  ::selection { @apply bg-[#C9A84C] text-[#1A1A1A]; }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[10px] tracking-[0.22em] uppercase text-[#888];
+  }
+  .section-title {
+    @apply font-display text-3xl md:text-4xl text-[#1A1A1A] leading-tight;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#1A1A1A] text-[#F5F4F0]
+           font-body font-medium text-sm px-6 py-3 tracking-wide
+           hover:bg-[#333] active:bg-black transition-colors duration-150;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 border border-[#1A1A1A] text-[#1A1A1A]
+           font-body font-medium text-sm px-6 py-3 tracking-wide
+           hover:bg-[#1A1A1A] hover:text-[#F5F4F0] transition-colors duration-150;
+  }
+  .field {
+    @apply w-full bg-white border border-[#D8D6CE] text-[#1A1A1A] font-body text-sm
+           px-4 py-3 focus:outline-none focus:border-[#1A1A1A]
+           placeholder-[#AAA] transition-colors duration-150;
+  }
+  .card { @apply bg-white border border-[#E4E2DA] p-6; }
+  .badge-low  { @apply inline-block text-[10px] font-mono tracking-[0.18em] uppercase px-3 py-1 bg-[#EBF5EE] text-[#2D6A4F] border border-[#B7D9C2]; }
+  .badge-mid  { @apply inline-block text-[10px] font-mono tracking-[0.18em] uppercase px-3 py-1 bg-[#FDF3E3] text-[#9A6320] border border-[#F0D6A8]; }
+  .badge-high { @apply inline-block text-[10px] font-mono tracking-[0.18em] uppercase px-3 py-1 bg-[#FAEAEC] text-[#8B2635] border border-[#E8B4BB]; }
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #EDECEA; }
+::-webkit-scrollbar-thumb { background: #C8C6BE; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+.data-table { @apply w-full text-sm font-body; }
+.data-table thead { @apply bg-[#1A1A1A] text-[#F5F4F0]; }
+.data-table thead th { @apply px-4 py-3 text-left font-medium tracking-wide text-xs uppercase; }
+.data-table tbody tr { @apply border-b border-[#EDECEA] hover:bg-[#F9F8F5] transition-colors; }
+.data-table tbody td { @apply px-4 py-3 text-[#1A1A1A]; }
+.data-table tbody tr.winner { @apply bg-[#FBF7ED] font-medium; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up    { animation: fadeUp 0.35s ease both; }
+.fade-up-d1 { animation: fadeUp 0.35s 0.08s ease both; }
+.fade-up-d2 { animation: fadeUp 0.35s 0.16s ease both; }
+.fade-up-d3 { animation: fadeUp 0.35s 0.24s ease both; }
+
+/* warning banner */
+.warning-banner {
+  @apply bg-[#FDF3E3] border-b border-[#F0D6A8] text-[#7A4F10] 
+         font-body text-xs py-2 px-6 text-center tracking-wide;
+}
